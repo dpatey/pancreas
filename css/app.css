@@ -171,6 +171,8 @@ h2 {
 
 #section5 h2 {
     font-size:27px;
+    margin: 0 0 20px 0;
+    font-weight: bold;
 }
 
 .page5Text {
@@ -425,6 +427,8 @@ sup {
     
     #section5 h2 {
         font-size:30px;
+        margin: 0 0 20px 0;
+        font-weight: bold;
     }
 
     .page5Text {
