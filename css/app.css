@@ -56,7 +56,7 @@ body {
 }
 
 #fullpage .container  {
-    padding-top:80px;
+    padding-top:60px;
 }
 
 h2 {
@@ -67,7 +67,7 @@ h2 {
     position:absolute;
     z-index:999;
     width:100%;
-    top:220px;
+    top:210px;
 }
 
 .highlight {
@@ -84,7 +84,7 @@ h2 {
 
 #pancreasContainer {
     position:relative;
-    min-height:160px;
+    min-height:150px;
 }
 
 .pancreas {
@@ -126,11 +126,11 @@ h2 {
 
 .page2Text {
     display:none;
-    margin-top:-25px;
+    margin-top:-45px;
 }
 
 #page2Mobile h2 {
-    font-size:25px;
+    font-size:23px;
 }
 
 .page3-spacer {
