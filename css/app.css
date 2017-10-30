@@ -67,7 +67,7 @@ h2 {
     position:absolute;
     z-index:999;
     width:100%;
-    top:240px;
+    top:220px;
 }
 
 .highlight {
@@ -126,6 +126,7 @@ h2 {
 
 .page2Text {
     display:none;
+    margin-top:-20px;
 }
 
 #page2Mobile h2 {
@@ -401,6 +402,7 @@ sup {
 
     .page2Text {
         display:none;
+        margin-top:0;
     }
     
 
