@@ -181,8 +181,8 @@ h2 {
 
 .page5Text {
     padding: 0 30px;
-    font-size: 1.8em;
-    line-height:1.8em;
+    font-size: 1.1em;
+    line-height:1.5em;
     margin-top: 20px;
 }
 
@@ -421,7 +421,7 @@ sup {
     .page3Text {
         padding: 0 30px;
         font-size: 1.8em;
-        line-height:1.8em;
+        line-height: 1.4em;
         width: 75%;
         margin-top: 20px;
     }
@@ -437,7 +437,7 @@ sup {
     .page4Text {
         padding: 0 30px;
         font-size: 1.8em;
-        line-height:1.8em;
+        line-height: 1.4em;
         margin-top: 20px;
         width:95%;
     }
@@ -451,7 +451,7 @@ sup {
     .page5Text {
         padding: 0 30px;
         font-size: 1.8em;
-        line-height:1.8em;
+        line-height: 1.4em;
         margin-top: 20px;
     }
     
