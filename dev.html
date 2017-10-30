@@ -99,10 +99,11 @@
             function showPage2() {
                 
                 $("#pancPixel").fadeOut(1000);
-                        $("#pancClear").fadeIn(1000, function(){ 
-                            //$('#pancreasContainer').trigger('stopRumble');
-                            setTimeout("$('.page2Text').fadeIn(500)",500);
-                        });
+                $("#darkener").fadeOut(1000);
+                $("#pancClear").fadeIn(1000, function(){ 
+                    //$('#pancreasContainer').trigger('stopRumble');
+                    setTimeout("$('.page2Text').fadeIn(500)",500);
+                });
             }
             
 
@@ -116,6 +117,7 @@
                     console.log("index = " + index);
 
                     if(index == 1){
+                        $("#darkener").fadeIn(700);
                         $("#pancClear").fadeOut(700);
                         $("#pancPixel").fadeIn(700);
                         $(".page2Text").fadeOut(400);
@@ -176,6 +178,10 @@
     </script>
     </head>
     <body>
+        
+        <!-- This is the modal overlay emulator -->
+        <div id="darkener">&#160;</div>
+
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 
