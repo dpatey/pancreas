@@ -132,6 +132,9 @@ h2 {
     font-size:28px;
 }
 
+.page3-spacer {
+    margin-top:-40px;
+}
 .mostMassive {
     font-size: 16em;
     line-height: 100%;
@@ -142,7 +145,8 @@ h2 {
     font-size: 90px;
     line-height: 82px;
     padding: 0px 33px 5px 33px;
-    margin-top: -15px;
+    margin-bottom:30px;
+    width:100%;
 }
 
 .page3Text {
@@ -254,6 +258,17 @@ sup {
     
     #page2Desktop {
         display:block;
+    }
+
+    .page3-spacer {
+        margin-top:80px;
+    }
+
+    .mostMassive {
+        margin-top:-80px;
+    }
+    .lessMassive {
+        width:100%;
     }
 
     #page4Mobile {
@@ -388,10 +403,12 @@ sup {
         display:none;
     }
     
+
     .mostMassive {
         font-size:20em;
         line-height:100%;
         font-weight:bold;
+        margin-top: -100px;
     }
     
     .lessMassive {
