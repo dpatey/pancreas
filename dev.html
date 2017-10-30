@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width">
+	<title>Pancreatic Cancer</title>
+	<meta name="author" content="Darrin Patey" />
+	<meta name="description" content="fullPage fixed full-screen backgrounds." />
+	<meta name="keywords"  content="fullpage,jquery,demo,screen,fixed,fullscreen,backgrounds,full-screen" />
+	<meta name="Resource-type" content="Document" />
+
+
+	<link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/www.assumptionscanbedeadly.ca/wip/fullpage.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="examples.css" /> -->
+	
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/www.assumptionscanbedeadly.ca/wip/fullpage.css" />
+    <link href="css/app.css" rel="stylesheet"/>
+
+    <style type="text/css">
+    
+    @font-face {
+        font-family: pressura;
+        src: url(fonts/GT-Pressura-Regular.woff);
+    }
+
+    @font-face {
+        font-family: pressura;
+        src: url(fonts/GT-Pressura-Bold.woff);
+        font-weight:bold;
+    }
+    
+    
+    /* Style for our header texts
+    * --------------------------------------- */
+    h1{
+        font-size: 5em;
+        font-family: arial,helvetica;
+        color: #fff;
+        margin:0;
+        padding:0;
+    }
+    
+    /* Centered texts in each section
+    * --------------------------------------- */
+    .section{
+        text-align:center;
+    }
+    
+    
+    /* Backgrounds will cover all the section
+    * --------------------------------------- */
+    #section0,
+    #section1,
+    #section2,
+    #section3{
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    
+    /* Defining each sectino background and styles
+    * --------------------------------------- */
+    #section1{
+        /* background-image: url(img/bgDark.png); */
+    }
+    #section1 h1{
+    }
+    #section2{
+        
+    }
+    #section3{
+        
+    }
+    #section3 h1{
+        color: #000;
+    }
+
+
+
+
+    </style>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <script src="vendors/jquery.jrumble.1.3.min.js"></script>
+
+    <script type="text/javascript" src="vendors/scrolloverflow.js"></script>
+
+    <script type="text/javascript" src="https://storage.googleapis.com/www.assumptionscanbedeadly.ca/wip/fullpage.js"></script>
+    <!-- <script type="text/javascript" src="examples.js"></script> -->
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            
+            //$('#pancreasContainer').jrumble();
+            
+            function showPage2() {
+                
+                $("#pancPixel").fadeOut(1000);
+                        $("#pancClear").fadeIn(1000, function(){ 
+                            //$('#pancreasContainer').trigger('stopRumble');
+                            setTimeout("$('.page2Text').fadeIn(500)",500);
+                        });
+            }
+            
+
+            $('#fullpage').fullpage({
+                verticalCentered: false,
+
+                //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
+                css3:false,
+                afterLoad: function(anchorLink, index){
+                    var loadedSection = $(this);
+                    console.log("index = " + index);
+
+                    if(index == 1){
+                        $("#pancClear").fadeOut(700);
+                        $("#pancPixel").fadeIn(700);
+                        $(".page2Text").fadeOut(400);
+
+                    }
+
+                    if(index == 2){
+                        
+                        setTimeout(showPage2,200);
+
+                    }
+
+                    if (index == 3){
+                        
+                    }
+
+                    if (index == 5){
+                        // setTimeout('$("#infoMenu").fadeIn(700)',1000);
+                        $("#infoMenu").fadeIn(500);
+                    }
+                    
+                },
+
+                onLeave: function(index, nextIndex, direction){
+                    var leavingSection = $(this);
+
+                    if(index == 1 && direction =='down'){
+                        //$('#pancreasContainer').trigger('startRumble');
+                    }
+
+
+                    if(index == 2 && direction =='down'){
+                        $('#showtime').fadeOut(200);
+                    }
+
+                    else if(index == 3 && direction == 'up'){
+                        setTimeout("$('#showtime').fadeIn(400)",500);
+                    }
+
+                    if(index == 5 && direction =='up'){
+                        $('#infoMenu').fadeOut(200);
+                    }
+
+                }
+            });
+        });
+    </script>
+
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                
+                <div id="navbar" class="text-right">
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a id="share" href="#">Share</a></li>
+                        <li><a id="donate" href="#">Donate</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+
+        <div class="container" id="showtime">
+            <div class="row">
+                <div class="col-md-3 col-sm-3 text-center"></div>
+                <div class="col-md-6 col-sm-6 text-center">
+                    <div id="pancreasContainer">
+                        <img src="img/pancClear.png" class="pancreas" id="pancClear" style="display:none">
+                        <!-- <img src="img/pancPixel.png" class="pancreas" id="pancPixel" style=""> -->
+                        <img src="img/panc.gif" class="pancreas" id="pancPixel" style="">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 text-center"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-3 text-center"></div>
+                    <div class="col-md-6 col-sm-6 text-center">
+                    <img src="img/pancShadow.png" class="pancreas-shadow">
+                </div>
+                <div class="col-md-3 col-sm-3 text-center"></div>
+            </div>
+        </div>
+
+        <div id="fullpage">
+            <section id="section1" class="section">
+              <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-xs-12 col-sm-12 text-left padded-multiline">
+                        <h2 class="highlight">Assumptions</h2><br>
+                        <h2 class="highlight">can be deadly.</h2>
+
+                        <!-- <div class="wrappertest">
+                            <h2 class="padded-title">Assumptions can be deadly.</h2>
+                        </div> -->
+
+                    </div>
+                    <div class="col-md-8"></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">&#160;</div>
+                </div>
+
+                <!-- <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img src="img/pancPixel.png" class="pancreas">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <img src="img/pancShadow.png" class="pancreas-shadow">
+                    </div>
+                </div> -->
+              </div>
+            </section>
+              <section id="section2" class="section">
+              <div class="container" id="page2Desktop">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4 text-left padded-multiline page2Text">
+                            <h2 class="highlight">Yes it starts</h2>
+                            <h2 class="highlight">with a 'p' and</h2>
+                            <h2 class="highlight">ends with an 's',</h2>
+                            <h2 class="highlight">but if you didn't</h2>
+                            <h2 class="highlight">know this was</h2>
+                            <h2 class="highlight">a pancreas,</h2>
+                            <h2 class="highlight">you need to</h2>
+                            <h2 class="highlight">keep scrolling.</h2>
+    
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-8"></div>
+                    </div>
+              </div>
+              <div class="container" id="page2Mobile">
+                    <div class="row">
+                        <div class="col-xs-12" style="min-height:400px;">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-left padded-multiline page2Text">
+                            <h2 class="highlight">Yes it starts with a 'p'</h2><br>
+                            <h2 class="highlight">and ends with an 's',</h2><br>
+                            <h2 class="highlight">but if you didn't</h2><br>
+                            <h2 class="highlight">know this was a pancreas,</h2><br>
+                            <h2 class="highlight">you need to keep scrolling.</h2><br>
+    
+                        </div>
+                    </div>
+              </div>
+            </section>
+            <section id="section3" class="section">
+              <div class="container">
+                <div class="row">
+                    <div class="col-md-1 text-center"></div>
+                    <div class="col-md-4 text-center">
+                        <div class="mostMassive">93<sup>%</sup></div>
+                        <div class="lessMassive highlight">will die</div>
+                    </div>
+                    <div class="col-md-1 text-center"></div>
+                    <div class="col-md-6 text-left">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="lessMassive">&#160;</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="highlight">Pancreatic Cancer</h2><br>
+                                <h2 class="highlight">is deadlier than you think.</h2><br>
+                                <p class="page3Text">In 2017, 5500 Canadian will be diagnosed with Pancreatic Cancer. 50% will die within 4 months.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </section>
+
+            <section id="section4" class="section">
+                <div class="container" id="page4Desktop">
+                    <div class="row">
+                        <div class="col-md-12">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-left">
+                            <h2 class="highlight">Pancreatic Cancer</h2><br>
+                            <h2 class="highlight">symptoms are often</h2><br>
+                            <h2 class="highlight">hard to spot.</h2><br>
+                            <p class="page4Text">
+                                    Common symptoms can include back pain, weight loss, nausea and tiredness, so it's easy to make wrong assumptions. Unfortunately, this often proves fatal.</p>               
+
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-12 text-left">
+                                <iframe id="ytplayer" type="text/html" width="500" height="300" src="https://www.youtube.com/embed/-9Xg0T2VYLY?autoplay=0&amp;origin=http://www.assumptionscanbedeadly.ca" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" id="page4Mobile">
+                    <div class="row">
+                        <div class="col-md-12">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-left">
+                            <iframe id="ytplayer" type="text/html" width="380" height="200" src="https://www.youtube.com/embed/-9Xg0T2VYLY?autoplay=0&amp;origin=http://www.assumptionscanbedeadly.ca" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 text-left">
+                            <h2 class="highlight">Pancreatic Cancer</h2><br>
+                            <h2 class="highlight">symptoms are often</h2><br>
+                            <h2 class="highlight">hard to spot.</h2><br>
+                            <p class="page4Text">
+                                    Common symptoms can include back pain, weight loss, nausea and tiredness, so it's easy to make wrong assumptions. Unfortunately, this often proves fatal.</p>               
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="section5" class="section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <h2 class="underline">Now you know the facts.</h2><br>
+                            <h2 class="underline">It's time to change the outcome.</h2>
+
+                        </div>
+                        
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3"></div>
+
+                        <div class="col-md-6 text-center">
+                            <p class="page5Text">
+                                Pancreatic Cancer survival rates haven't improved in 40 years. Your donation is crucial to help fund research and save lives. Together, we can defeat the deadliest major cancer.
+                            </p>
+
+                        </div>
+                        <div class="col-md-3"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">&#160;</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button type="button" class="btn">I Can Help</button>
+                        </div>
+                    </div>
+                </div>
+                
+            </section>
+            
+            
+          </div>
+          <div id="infoMenu" class="">
+            <div class="footer">
+                For more information, visit us at <a href="http://pancreaticcancercanada.ca" target="_blank">pancreaticcancercanada.ca</a>.
+            </div>
+            <img src="img/logo.png" id="logo">
+        </div>
+
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
