@@ -2,6 +2,14 @@
 
 .container { width: auto; }
 
+#sharebox {
+    /* visibility:hidden; */
+    display:none !important;
+    position: absolute;
+    top: 50px !important;
+    right: 20px;
+}
+
 body {
     background-size: cover;
     background-attachment: fixed;
