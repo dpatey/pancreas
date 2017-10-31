@@ -103,7 +103,7 @@ h2 {
     line-height: 1em;
     font-weight: bold;
     display: inline-block;
-    margin: 4px 0px;
+    margin: 4px 0px 1px 0;
     padding: 0px 20px 5px 22px;
     /* box-shadow: 10px 0 0 #2b5a0f, -10px 0 0 #2b5a0f; */
 }
