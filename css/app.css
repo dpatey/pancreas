@@ -182,8 +182,11 @@ h2 {
 
 .page3Text {
     padding: 0px;
-    font-size: 1.5em;
-    line-height:1.7em;
+
+    font-size: 1.1em;
+    line-height:1.5em;
+    /* font-size: 1.5em;
+    line-height:1.7em; */
     width: 100%;
     margin-top: 20px;
 }
@@ -198,8 +201,11 @@ h2 {
 
 .page4Text {
     padding: 0px;
-    font-size: 1.5em;
-    line-height:1.7em;
+
+    font-size: 1.1em;
+    line-height:1.5em;
+    /* font-size: 1.5em;
+    line-height:1.7em; */
     margin-top: 20px;
     width:95%;
 }
@@ -209,11 +215,13 @@ h2 {
     height:200px;
 }
 
-#section5 h2 {
+#section5 h2, #section3 h2 {
     font-size:27px;
     margin: 0 0 5px 0;
     font-weight: bold;
 }
+
+
 
 .page5Text {
     padding: 0 30px;
@@ -308,7 +316,7 @@ sup {
         font-size:20px;
     }
 
-    #section5 h2 {
+    #section5 h2, #section5 h2 {
         font-size:23px;
     }
 
@@ -500,9 +508,13 @@ sup {
     
     }
     
+    .section3Copy {
+        margin-top:20px;
+    }
+
     .page3Text {
-        padding: 0 30px;
-        font-size: 1.8em;
+        padding: 0px;
+        font-size: 1.5em;
         line-height: 1.4em;
         width: 75%;
         margin-top: 20px;
@@ -529,11 +541,12 @@ sup {
         height:300px;
     }
 
-    #section5 h2 {
+    #section5 h2, #section3 h2 {
         font-size:30px;
         margin: 0 0 5px 0;
         font-weight: bold;
     }
+
 
     .page5Text {
         padding: 0 30px;
