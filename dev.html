@@ -12,10 +12,16 @@
     <link rel="icon" href="https://storage.googleapis.com/pccf-microsite-bucket/css/PCC_Favicon.png">
     <meta property="og:type" content="article">
     <meta property="og:title" content="Assumptions can be deadly.">
-    <meta property="og:site_name" content="Together, we can defeat the deadliest major cancer. Donate to Pancreatic Cancer Canada.">
+    <meta property="og:description" content="If you didn’t know that’s a pancreas, you probably don’t know much about Pancreatic Cancer. It’s time to know the facts and change the outcome.">
     <meta property="og:url" content="www.assumptionscanbedeadly.ca">
     <meta property="og:image" content="https://storage.googleapis.com/www.assumptionscanbedeadly.ca/wip/img/fbShareLg.jpg">
-
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@pancancercanada">
+    <meta name="twitter:creator" content="@pancancercanada">
+    <meta name="twitter:title" content="Assumptions can be deadly.">
+    <meta name="twitter:description" content="If you didn’t know that’s a pancreas, you probably don’t know much about Pancreatic Cancer. It’s time to know the facts and change the outcome.">
+    <meta name="twitter:image" content="https://storage.googleapis.com/www.assumptionscanbedeadly.ca/wip/img/fbShareLg.jpg">
 	<link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/www.assumptionscanbedeadly.ca/wip/fullpage.css" />
 	<!-- <link rel="stylesheet" type="text/css" href="examples.css" /> -->
 	
@@ -99,12 +105,20 @@
     <script type="text/javascript">
         $(document).ready(function() {
             
+            
+
             $("#sharebox").jsSocials({
                 showLabel: false,
                 showCount: false,
+                url: "http://www.assumptionscanbedeadly.ca/",
                 shares: [
                     "facebook",
-                    "twitter",
+                    {
+                        share: "twitter",
+                        label: "Twitter",
+                        url: "http://www.assumptionscanbedeadly.ca/",
+                        text: "If you didn’t know that’s a pancreas, you probably don’t know much about Pancreatic Cancer. #AssumptionsCanBeDeadly"
+                    },
                     {
                         share: "email",
                         label: "Email",
@@ -113,6 +127,14 @@
                     }],
 
             });
+
+            function overwriteEmailString() {
+                // var oldHref = $(".jssocials-share-email a").attr("href");
+                // console.log("oldHref= " + oldHref);
+                $(".jssocials-share-email a").attr("href","mailto:?subject=Together%2C%20we%20can%20defeat%20the%20deadliest%20major%20cancer.&body=If%20you%20didn%E2%80%99t%20know%20that%E2%80%99s%20a%20pancreas%2C%20you%20probably%20don%E2%80%99t%20know%20much%20about%20Pancreatic%20Cancer.%20It%E2%80%99s%20time%20to%20know%20the%20facts%20and%20change%20the%20outcome.%20Check%20out%20http%3A%2F%2Fwww.assumptionscanbedeadly.ca%2Fwip%2Fdev.html");
+                
+            }
+            var overwriter = setTimeout(overwriteEmailString,2000);
 
             $("#share").click(function(e) {
                 console.log("click");
@@ -132,7 +154,7 @@
                 $("#sharebox").fadeOut(200);
             });
 
-            $("#sharebox").click( function() {
+            $("#sharebox").click( function(e) {
                 e.stopPropagation();
             });
 
@@ -157,27 +179,56 @@
                     var loadedSection = $(this);
                     console.log("index = " + index);
 
-                    if(index == 1){
+                    if(index == 1) {
                         $("#darkener").fadeIn(700);
                         $("#pancClear").fadeOut(700);
                         $("#pancPixel").fadeIn(700);
                         $(".page2Text").fadeOut(400);
 
+                        //analytics
+                        fbq('track', 'ViewContent', {content_name: 'Landing Page'});
+                        gtag('event', 'page_view', {
+                            'page': 'Landing Page'
+                        });
                     }
 
-                    if(index == 2){
+                    if(index == 2) {
                         
                         setTimeout(showPage2,200);
 
+                        //analytics
+                        fbq('track', 'ViewContent', {content_name: 'Reveal Page'});
+                        gtag('event', 'page_view', {
+                            'page': 'Reveal Page'
+                        });
+
                     }
 
-                    if (index == 3){
-                        
+                    if (index == 3) {
+                        //analytics
+                        fbq('track', 'ViewContent', {content_name: '93% Page'});
+                        gtag('event', 'page_view', {
+                            'page': '93% Page'
+                        });
+                    }
+
+                    if (index == 4) {
+                        //analytics
+                        fbq('track', 'ViewContent', {content_name: 'Video Page'});
+                        gtag('event', 'page_view', {
+                            'page': 'Video Page'
+                        });
                     }
 
                     if (index == 5){
                         // setTimeout('$("#infoMenu").fadeIn(700)',1000);
                         $("#infoMenu").fadeIn(500);
+
+                        //analytics
+                        fbq('track', 'ViewContent', {content_name: 'Donate Page'});
+                        gtag('event', 'page_view', {
+                            'page': 'Donate Page'
+                        });
                     }
                     
                 },
@@ -227,7 +278,7 @@
         t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
         document,'script','https://connect.facebook.net/en_US/fbevents.js');
         // Insert Your Facebook Pixel ID below. 
-        fbq('init', 'FB_PIXEL_ID');
+        fbq('init', '1986055984984657');
         fbq('track', 'PageView');
         </script>
         <!-- Insert Your Facebook Pixel ID below. --> 
