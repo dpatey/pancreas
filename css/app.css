@@ -67,6 +67,9 @@ body {
 
 .navbar-default .navbar-nav > li > a {
     color: #fff;
+    text-decoration: underline;
+    text-decoration-color: #85cd5e;
+    text-underline-position: under;
 }
 
 .navbar-default .navbar-nav > li > a:hover {
