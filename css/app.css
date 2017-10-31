@@ -99,7 +99,7 @@ h2 {
 
 #showtime {
     position:absolute;
-    z-index:999;
+    z-index:1;
     width:100%;
     top:210px;
 }
@@ -435,7 +435,7 @@ sup {
     
     #showtime {
         position:absolute;
-        z-index:999;
+        z-index:1;
         width:100%;
         top:200px;
     }
