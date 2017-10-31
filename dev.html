@@ -169,6 +169,38 @@
                 });
             }
             
+            // Tracking events
+            $("#donateButton").click(function() {
+                fbq('track', 'ViewContent', {content_name: 'Clicked Donate'});
+                gtag('event', 'play', {
+                    'event_category': 'Page View',
+                    'event_label': 'Clicked Donate'
+                });
+            });
+
+            $(".jssocials-share-facebook a").click(function() {
+                fbq('track', 'ViewContent', {content_name: 'Clicked Facebook Share'});
+                gtag('event', 'play', {
+                    'event_category': 'Page View',
+                    'event_label': 'Clicked Facebook Share'
+                });
+            });
+
+            $(".jssocials-share-twitter a").click(function() {
+                fbq('track', 'ViewContent', {content_name: 'Clicked Twitter Share'});
+                gtag('event', 'play', {
+                    'event_category': 'Page View',
+                    'event_label': 'Clicked Twitter Share'
+                });
+            });
+
+            $(".jssocials-share-email a").click(function() {
+                fbq('track', 'ViewContent', {content_name: 'Clicked Email Share'});
+                gtag('event', 'play', {
+                    'event_category': 'Page View',
+                    'event_label': 'Clicked Email Share'
+                });
+            });
 
             $('#fullpage').fullpage({
                 verticalCentered: false,
@@ -187,8 +219,9 @@
 
                         //analytics
                         fbq('track', 'ViewContent', {content_name: 'Landing Page'});
-                        gtag('event', 'page_view', {
-                            'page': 'Landing Page'
+                        gtag('event', 'play', {
+                            'event_category': 'Page View',
+                            'event_label': 'Landing Page'
                         });
                     }
 
@@ -198,8 +231,9 @@
 
                         //analytics
                         fbq('track', 'ViewContent', {content_name: 'Reveal Page'});
-                        gtag('event', 'page_view', {
-                            'page': 'Reveal Page'
+                        gtag('event', 'play', {
+                            'event_category': 'Page View',
+                            'event_label': 'Reveal Page'
                         });
 
                     }
@@ -207,16 +241,18 @@
                     if (index == 3) {
                         //analytics
                         fbq('track', 'ViewContent', {content_name: '93% Page'});
-                        gtag('event', 'page_view', {
-                            'page': '93% Page'
+                        gtag('event', 'play', {
+                            'event_category': 'Page View',
+                            'event_label': '93% Page'
                         });
                     }
 
                     if (index == 4) {
                         //analytics
                         fbq('track', 'ViewContent', {content_name: 'Video Page'});
-                        gtag('event', 'page_view', {
-                            'page': 'Video Page'
+                        gtag('event', 'play', {
+                            'event_category': 'Page View',
+                            'event_label': 'Video Page'
                         });
                     }
 
@@ -226,8 +262,9 @@
 
                         //analytics
                         fbq('track', 'ViewContent', {content_name: 'Donate Page'});
-                        gtag('event', 'page_view', {
-                            'page': 'Donate Page'
+                        gtag('event', 'play', {
+                            'event_category': 'Page View',
+                            'event_label': 'Donate Page'
                         });
                     }
                     
@@ -283,7 +320,7 @@
         </script>
         <!-- Insert Your Facebook Pixel ID below. --> 
         <noscript><img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=FB_PIXEL_ID&amp;ev=PageView&amp;noscript=1"
+        src="https://www.facebook.com/tr?id=1986055984984657&amp;ev=PageView&amp;noscript=1"
         /></noscript>
         <!-- End Facebook Pixel Code -->
         
@@ -527,7 +564,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <a href="http://www.pancreaticcancercanada.ca/site/Donation2?df_id=2842&mfc_pref=T&2842.donation=form1" target="_blank" class="btn" >I Can Help</a>
+                            <a href="http://www.pancreaticcancercanada.ca/site/Donation2?df_id=2842&mfc_pref=T&2842.donation=form1" target="_blank" class="btn" id="donateButton">I Can Help</a>
                         </div>
                     </div>
                 </div>
