@@ -235,10 +235,14 @@ h2 {
 .btn {
     font-size:28px;
     background: #85cd5e;
-    color: #0b263e;
+    color: #2a5046;
     padding: 10px 30px;
     border-radius: 10px;
     font-weight:bold;
+}
+
+.btn:hover {
+    color:#0b263e;
 }
 
 sup {
@@ -551,10 +555,14 @@ sup {
     .btn {
         font-size:28px;
         background: #85cd5e;
-        color: #0b263e;
+        color: #2a5046;
         padding: 10px 30px;
         border-radius: 10px;
         font-weight:bold;
+    }
+
+    .btn:hover {
+        color:#0b263e;
     }
     
     sup {
