@@ -192,6 +192,11 @@ h2 {
     width:95%;
 }
 
+#ytplayer {
+    width:340px;
+    height:200px;
+}
+
 #section5 h2 {
     font-size:27px;
     margin: 0 0 20px 0;
@@ -502,6 +507,11 @@ sup {
         width:95%;
     }
     
+    #ytplayer {
+        width:540px;
+        height:300px;
+    }
+
     #section5 h2 {
         font-size:30px;
         margin: 0 0 20px 0;
@@ -581,6 +591,11 @@ sup {
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
     
+    #ytplayer {
+        width:640px;
+        height:340px;
+    }
+
     h2 {
         font-size:2.3em;
     }
