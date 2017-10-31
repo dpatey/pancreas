@@ -21,7 +21,7 @@
 	
     <link href="css/bootstrap.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/www.assumptionscanbedeadly.ca/wip/fullpage.css" />
-    <link href="css/app.css" rel="stylesheet"/>
+    
 
     <style type="text/css">
     
@@ -102,7 +102,16 @@
             $("#sharebox").jsSocials({
                 showLabel: false,
                 showCount: false,
-                shares: ["facebook", "twitter", "email"]
+                shares: [
+                    "facebook",
+                    "twitter",
+                    {
+                        share: "email",
+                        label: "Email",
+                        logo: "fa fa-envelope-o",
+                        css: "greyemail"
+                    }],
+
             });
 
             $("#share").click(function(e) {
@@ -202,10 +211,13 @@
     </script>
 
     <script type="text/javascript" src="https://storage.googleapis.com/www.assumptionscanbedeadly.ca/wip/vendors/jssocials.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/wip/css/font-awesome.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="/wip/css/font-awesome.css" />
     <link type="text/css" rel="stylesheet" href="/wip/css/jssocials.css" />
-    <link type="text/css" rel="stylesheet" href="/wip/css/jssocials-theme-flat.css" />
-
+    <link type="text/css" rel="stylesheet" href="/wip/css/jssocials-theme-flat.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link type="text/css" rel="stylesheet" href="css/jssocials.css" />
+    <link type="text/css" rel="stylesheet" href="css/jssocials-theme-flat.css" />
+    <link type="text/css" rel="stylesheet" href="css/app.css" />
 
     <!-- Facebook Pixel Code -->
     <script>
