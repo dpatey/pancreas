@@ -3,11 +3,13 @@
 .container { width: auto; }
 
 #sharebox {
-    /* visibility:hidden; */
-    display:none !important;
+    display: none;
     position: absolute;
-    top: 50px !important;
-    right: 20px;
+    top: 47px !important;
+    right: 18px;
+    height: 150px;
+    width: 41px;
+    z-index:3;
 }
 
 body {
@@ -69,6 +71,12 @@ body {
 
 .navbar-default .navbar-nav > li > a:hover {
     color: #bbb;
+    text-decoration: underline;
+    text-decoration-color: #85cd5e;
+}
+
+.navbar-default .navbar-nav > li > a:focus {
+    color: #bbb !important;
     text-decoration: underline;
     text-decoration-color: #85cd5e;
 }

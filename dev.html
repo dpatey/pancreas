@@ -94,15 +94,34 @@
     <script type="text/javascript">
         $(document).ready(function() {
             
+            $("#sharebox").jsSocials({
+                showLabel: false,
+                showCount: false,
+                shares: ["facebook", "twitter", "email"]
+            });
+
             $("#share").click(function(e) {
                 console.log("click");
-                e.preventDefault;
-                $("#sharebox").fadeIn(200);
+                e.preventDefault();
+                if ($("#sharebox").css('display') == 'none' ){
+                    $("#sharebox").fadeIn(200);
+                    e.stopPropagation();
+                }
+                else {
+                    $("#sharebox").fadeOut(200);
+                }
+                
 
             });
 
-            //$('#pancreasContainer').jrumble();
-            
+            $(document.body).click( function() {
+                $("#sharebox").fadeOut(200);
+            });
+
+            $("#sharebox").click( function() {
+                e.stopPropagation();
+            });
+
             function showPage2() {
                 
                 $("#pancPixel").fadeOut(1000);
@@ -175,6 +194,13 @@
         });
         
     </script>
+
+    <script type="text/javascript" src="vendors/jssocials.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link type="text/css" rel="stylesheet" href="css/jssocials.css" />
+    <link type="text/css" rel="stylesheet" href="css/jssocials-theme-flat.css" />
+
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108724540-1"></script>
     <script>
@@ -203,7 +229,7 @@
         </nav>
 
         <div id="sharebox">
-            <div class="sharethis-inline-share-buttons" id="shareButtons"></div>
+            <!-- <div class="sharethis-inline-share-buttons" id="shareButtons"></div> -->
         </div>
         
         <div class="container" id="showtime">
