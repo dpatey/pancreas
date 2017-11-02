@@ -105,7 +105,16 @@
     <script type="text/javascript">
         $(document).ready(function() {
             
-            
+            $('#videoPlayButton').on('click', function(e){
+                console.log("button clicked");
+                e.preventDefault();
+                var $modalElement = $('#' + $(this).data('modal-id'));
+                $modalElement.modal();
+                var $iframe = $modalElement.find('iframe')[0];
+                $modalElement.on('hide.bs.modal', function (e) {
+                    $iframe.src = $iframe.src;
+                });
+            });
 
             $("#sharebox").jsSocials({
                 showLabel: false,
@@ -204,7 +213,9 @@
 
             $('#fullpage').fullpage({
                 verticalCentered: false,
-
+				navigation: true,
+				navigationPosition: 'right',
+				navigationTooltips: ['First', 'Second', 'Third'],
                 //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
                 css3:false,
                 afterLoad: function(anchorLink, index){
@@ -248,6 +259,7 @@
                     }
 
                     if (index == 4) {
+                        // $("#page4bg").fadeIn(400);
                         //analytics
                         fbq('track', 'ViewContent', {content_name: 'Video Page'});
                         gtag('event', 'play', {
@@ -288,9 +300,19 @@
                         setTimeout("$('#showtime').fadeIn(400)",500);
                     }
 
+                    if(index == 3 && direction =='down'){
+                        $("#page4bg").fadeIn(500);
+                    }
+                    
+                    if(index == 4){
+                        $("#page4bg").fadeOut(200);
+                    }
+
                     if(index == 5 && direction =='up'){
                         $('#infoMenu').fadeOut(200);
+                        $("#page4bg").fadeIn(500);
                     }
+
 
                 }
             });
@@ -338,6 +360,25 @@
         
         <!-- This is the modal overlay emulator -->
         <div id="darkener">&#160;</div>
+
+        <!-- Page 4 background -->
+        <div id="page4bg">&#160;</div>
+
+        <!-- The YouTube modal goes here -->
+        <!-- MODAL -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    
+                </div>
+                <div class="modal-body">
+                        <iframe id="ytplayer" type="text/html" width="360" height="200" src="https://www.youtube.com/embed/-9Xg0T2VYLY?autoplay=0&amp;origin=http://www.assumptionscanbedeadly.ca" frameborder="0"></iframe>
+                </div>
+                </div>
+            </div>
+        </div>
 
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -500,9 +541,14 @@
                                     Common symptoms can include back pain, weight loss, nausea and tiredness, so it's easy to make wrong assumptions. Unfortunately, this often proves fatal.</p>               
 
                         </div>
-                        <div class="col-md-7 col-sm-7 col-xs-12 text-left">
-                            <iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/-9Xg0T2VYLY?autoplay=0&amp;origin=http://www.assumptionscanbedeadly.ca" frameborder="0"></iframe>
+                        <div class="col-md-7 col-sm-7 col-xs-12 text-center">
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="videoPlayButton">
+                                <!-- Launch demo modal -->
+                            </button>
                         </div>
+                        <!-- <div class="col-md-7 col-sm-7 col-xs-12 text-left">
+                            <iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/-9Xg0T2VYLY?autoplay=0&amp;origin=http://www.assumptionscanbedeadly.ca" frameborder="0"></iframe>
+                        </div> -->
                     </div>
                 </div>
                 <div class="container" id="page4Mobile">
@@ -510,8 +556,10 @@
                         <div class="col-md-12">&#160;</div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 text-left">
-                            <iframe id="ytplayer" type="text/html" width="360" height="200" src="https://www.youtube.com/embed/-9Xg0T2VYLY?autoplay=0&amp;origin=http://www.assumptionscanbedeadly.ca" frameborder="0"></iframe>
+                        <div class="col-xs-12 text-center">
+                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="videoPlayButton">
+                                <!-- Launch demo modal -->
+                            </button>
                         </div>
                     </div>
                     <div class="row">
