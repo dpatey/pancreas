@@ -105,16 +105,49 @@
     <script type="text/javascript">
         $(document).ready(function() {
             
-            $('#videoPlayButton').on('click', function(e){
-                console.log("button clicked");
-                e.preventDefault();
-                var $modalElement = $('#' + $(this).data('modal-id'));
-                $modalElement.modal();
-                var $iframe = $modalElement.find('iframe')[0];
-                $modalElement.on('hide.bs.modal', function (e) {
-                    $iframe.src = $iframe.src;
-                });
-            });
+            // $('#videoPlayButton').on('click', function(e){
+//             	//autoPlayYouTubeModal();
+//                 console.log("button clicked");
+//                 e.preventDefault();
+//                 var $modalElement = $('#' + $(this).data('modal-id'));
+//                 $modalElement.modal();
+//                 var $iframe = $modalElement.find('iframe')[0];
+//                 $modalElement.on('hide.bs.modal', function (e) {
+//                     $iframe.src = $iframe.src;
+//                 });
+//             });
+            
+            $("#videoModal").on('hidden.bs.modal', function (e) {
+            	console.log("videomodal");
+    			$("#videoModal iframe").attr("src", "");
+			});
+              
+$(function() {
+    $(".video").click(function () {
+    console.log(".video");
+      var theModal = $(this).data("target"),
+      videoSRC = $(this).attr("data-video"),
+      videoSRCauto = videoSRC + "?modestbranding=0&rel=0&controls=1&showinfo=0&html5=1&autoplay=1";
+      $(theModal + ' iframe').attr('src', videoSRCauto);
+      $(theModal + ' button.close').click(function () {
+        $(theModal + ' iframe').attr('src', videoSRC);
+      });
+    });
+  });
+  
+  //FUNCTION TO GET AND AUTO PLAY YOUTUBE VIDEO FROM DATATAG
+//   function autoPlayYouTubeModal() {
+//       var trigger = $("body").find('[data-toggle="modal"]');
+//       trigger.click(function () {
+//           var theModal = $(this).data("target"),
+//               videoSRC = $(this).attr("data-theVideo"),
+//               videoSRCauto = videoSRC + "?autoplay=1";
+//           $(theModal + ' iframe').attr('src', videoSRCauto);
+//           $(theModal + ' button.close').click(function () {
+//               $(theModal + ' iframe').attr('src', videoSRC);
+//           });
+//       });
+//   }
 
             $("#sharebox").jsSocials({
                 showLabel: false,
@@ -169,13 +202,12 @@
 
             function showPage2() {
                 
-                $("#pancPixel").fadeOut(1000);
-                $("#darkener").fadeOut(1000);
-                $('.page2Text').fadeIn(1000)
-                $("#pancClear").fadeIn(1000, function(){ 
-                    //$('#pancreasContainer').trigger('stopRumble');
-                    // setTimeout("$('.page2Text').fadeIn(200)",100);
-                });
+                
+                	$("#pancPixel").fadeOut(1000);
+                	$("#darkener").fadeOut(1000);
+                	$('.page2Text').fadeIn(1000);
+                	$("#pancClear").fadeIn(1000);
+                
             }
             
             // Tracking events
@@ -211,11 +243,13 @@
                 });
             });
 
+			
+
             $('#fullpage').fullpage({
                 verticalCentered: false,
 				navigation: true,
 				navigationPosition: 'right',
-				navigationTooltips: ['First', 'Second', 'Third'],
+// 				navigationTooltips: ['First', 'Second', 'Third'],
                 //to avoid problems with css3 transforms and fixed elements in Chrome, as detailed here: https://github.com/alvarotrigo/fullPage.js/issues/208
                 css3:false,
                 afterLoad: function(anchorLink, index){
@@ -223,6 +257,7 @@
                     console.log("index = " + index);
 
                     if(index == 1) {
+                    	$("#showtime").fadeIn(200);
                         $("#darkener").fadeIn(700);
                         $("#pancClear").fadeOut(700);
                         $("#pancPixel").fadeIn(700);
@@ -238,7 +273,9 @@
 
                     if(index == 2) {
                         
-                        setTimeout(showPage2,200);
+                        
+					    //setTimeout(showPage2('no'),400);
+                        
 
                         //analytics
                         fbq('track', 'ViewContent', {content_name: 'Reveal Page'});
@@ -259,8 +296,7 @@
                     }
 
                     if (index == 4) {
-                        // $("#page4bg").fadeIn(400);
-                        //analytics
+                        $("#page4bg").fadeIn(500);                        //analytics
                         fbq('track', 'ViewContent', {content_name: 'Video Page'});
                         gtag('event', 'play', {
                             'event_category': 'Page View',
@@ -285,22 +321,29 @@
                 onLeave: function(index, nextIndex, direction){
                     var leavingSection = $(this);
 
-                    if(index == 1 && direction =='down'){
-                        //$('#pancreasContainer').trigger('startRumble');
-                        // window.scrollTo(0, 100);
-                        // console.log("onLeave index = " + index);
+                    if(index == 1 && nextIndex != 2 && direction =='down'){
+                        $('#pancPixel').fadeOut(200);
+                        $('#showtime').fadeOut(200);
+                        $('#darkener').fadeOut(200);
                     }
 
+					if (index == 1 && nextIndex == 2) {
+					    setTimeout(showPage2,600);
+					}
 
+					
                     if(index == 2 && direction =='down'){
                         $('#showtime').fadeOut(200);
                     }
 
-                    else if(index == 3 && direction == 'up'){
-                        setTimeout("$('#showtime').fadeIn(400)",500);
-                    }
-
-                    if(index == 3 && direction =='down'){
+					if (index != 1 && nextIndex == 2) {
+						$('.page2Text').fadeIn(400);
+						$('#pancClear').fadeIn(400);
+					   setTimeout("$('#showtime').fadeIn(400)",500);
+					}
+					
+					
+                    if(index == 3 && nextIndex == 4){
                         $("#page4bg").fadeIn(500);
                     }
                     
@@ -310,6 +353,8 @@
 
                     if(index == 5 && direction =='up'){
                         $('#infoMenu').fadeOut(200);
+                    }
+                    if(index == 5 && nextIndex == 4){
                         $("#page4bg").fadeIn(500);
                     }
 
@@ -364,9 +409,26 @@
         <!-- Page 4 background -->
         <div id="page4bg">&#160;</div>
 
+
+<!-- TESTING NEW MODAL -->
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <iframe width="100%" height="350" src="" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
         <!-- The YouTube modal goes here -->
         <!-- MODAL -->
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <!-- 
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                 <div class="modal-header">
@@ -379,6 +441,7 @@
                 </div>
             </div>
         </div>
+ -->
 
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
@@ -542,9 +605,13 @@
 
                         </div>
                         <div class="col-md-7 col-sm-7 col-xs-12 text-center">
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalDISABLED" id="videoPlayButton">
-                                <!-- Launch demo modal -->
+                            <!-- 
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="videoPlayButton">
+                                <!~~ Launch demo modal ~~>
                             </button>
+ -->
+   <button class="btn btn-success btn-lg video" id="videoPlayButton" data-video="https://www.youtube.com/embed/-9Xg0T2VYLY" data-toggle="modal" data-target="#videoModal"></button>
+
                         </div>
                         <!-- <div class="col-md-7 col-sm-7 col-xs-12 text-left">
                             <iframe id="ytplayer" type="text/html" src="https://www.youtube.com/embed/-9Xg0T2VYLY?autoplay=0&amp;origin=http://www.assumptionscanbedeadly.ca" frameborder="0"></iframe>
@@ -557,9 +624,14 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12 text-center">
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModalDISABLED" id="videoPlayButton">
-                                <!-- Launch demo modal -->
+                            <!-- 
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="videoPlayButton">
+                                <!~~ Launch demo modal ~~>
                             </button>
+ -->
+ 
+    <button class="btn btn-success btn-lg video" id="videoPlayButton" data-video="https://www.youtube.com/embed/-9Xg0T2VYLY" data-toggle="modal" data-target="#videoModal"></button>
+
                         </div>
                     </div>
                     <div class="row">

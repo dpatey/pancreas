@@ -7,8 +7,12 @@
 .jssocials-share-email .jssocials-share-link:hover {
     background: #555; }
 
+#fp-nav.right {
+     right: 7px; 
+}
+
 #fp-nav ul li a span, .fp-slidesNav ul li a span {
-    background:#9c63b4;
+    background:#410661;
     border:1px solid #fff;
 }
 
@@ -57,8 +61,8 @@ body {
 
 #videoPlayButton, #videoPlayButtonMobile {
     display:block;
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     margin: 40px auto;
     background-color: transparent;
     background-image:url(../img/playOff.png);
@@ -69,6 +73,16 @@ body {
 
 #videoPlayButton:hover, #videoPlayButtonMobile:hover {
     background-image:url(../img/playHover.png);
+}
+
+.close {
+    float: right;
+    font-size: 33px;
+    font-weight: normal;
+    line-height: 1;
+    color: #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
 }
 
 .modal-backdrop.in {
@@ -84,7 +98,8 @@ body {
 }
  
 .modal-body {
-    padding: 0 25px 25px 25px;
+    padding: 0;
+    margin-left:0px;
 }
  
 .modal-header {
@@ -411,7 +426,17 @@ sup {
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
-    
+    .modal-body {
+    	padding: 0;
+    	margin-left:-44px;
+	}
+	
+	#videoPlayButton, #videoPlayButtonMobile {
+    	width: 150px;
+    	height: 150px;
+    	margin: 52px 27%;
+	}
+	
     #page4bg {
         width: 100%;
         height: 100%;
@@ -468,6 +493,11 @@ sup {
         color:#fff;
         font-family: 'pressura';
     }
+
+
+	#fp-nav.right {
+     	right: 7px; 
+	}
 
     .navbar-nav {
         /* This is turned off while testing the .container width:auto solution */
